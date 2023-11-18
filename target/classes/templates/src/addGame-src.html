@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+</head>
+
+<div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/auth/hello">Home</a>
+        <form class="me-3 py-2 text-dark text-decoration-none" action="/auth/logout" method="post">
+            <button type="submit">Logout</button>
+        </form>
+    </nav>
+</div>
+
+<body>
+<form action="/api/games/create" method="post" enctype="multipart/form-data">
+    <div><label> Game Name : <input type="text" name="gameName"/> </label></div>
+
+
+    Genre: <input type="radio" name="genreId" value="1" checked> Horror
+    <input type="radio" name="genreId" value="2"> Travelling
+    <input type="radio" name="genreId" value="3"> Strategy
+    <input type="radio" name="genreId" value="4"> Shooting
+
+
+    <div class="w-25"><label class="w-25"> Description:
+        <input type="text" name="description" style="height:200px;font-size:14pt;"/>
+    </label>
+    </div>
+    <div ><label>Add image<input type="file" name="file1" accept="image/png,image/jpeg"></label></div>
+
+
+    <div><input type="submit" value="Sign In"/></div>
+</form>
+</br>
+</br>
+</br>
+<input action="action" type="button" onclick="history.go(-1);" value="Back">
+</body>
+</html>
+
+
+
+
+
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+
+
+
+
+
+<!--<div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/auth/hello">Home</a>
+
+        <form action="/auth/logout" method="post">
+            <button>Logout</button>
+        </form>
+
+    </nav>
+</div>-->
+<nav class="navbar navbar-expand-lg navbar-default bg-light">
+    <a class="navbar-brand" href="/auth/hello">     Computer Games Library</a>
+
+    <div>
+        <ul class="navbar-nav">
+            <li>
+                <a class="nav-link" href="#">Главная </a>
+            </li>
+            <li>
+                <a class="nav-link" href="#">Добавить игру</a>
+            </li>
+            <li class="text-right">
+                <form class="text-end" action="/auth/logout" method="post">
+                    <button>Logout</button>
+                </form>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+
+<body>
+
+
+<div class="container px-4 text-center">
+    <form action="/api/games/create" method="post" enctype="multipart/form-data"> </form>
+    <div><label> Game Name : <input type="text" name="gameName"/> </label></div>
+
+
+    </br>
+
+
+    Genre: <input type="radio" name="genreId" value="1" checked> Horror
+    <input type="radio" name="genreId" value="2"> Travelling
+    <input type="radio" name="genreId" value="3"> Strategy
+    <input type="radio" name="genreId" value="4"> Shooting
+
+
+
+    </br>
+    </br>
+
+    <!--<label>
+        <div class="input-group">
+            <span class="input-group-text">Description</span>
+            <textarea class="form-control" name="description" aria-label="С текстовым полем"></textarea>
+        </div>
+    </label>-->
+
+    <div class="container-fluid">
+        <label class="form-label">Description: </label>
+        <textarea class="form-control" name="description" rows="3"></textarea>
+    </div>
+
+    </br>
+    </br>
+
+
+    <div><label>Add image<input type="file" name="file1" accept="image/png,image/jpeg"></label></div>
+
+    </br>
+</div>
+
+<div><input type="submit" value="Sign In"/></div>
+
+</form>
+</br>
+</br>
+</br>
+<input action="action" type="button" onclick="history.go(-1);" value="Back">
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+<tr th:each="game:${gameList}">
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#55595c"></rect>
+                            <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                        </svg>
+
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</tr>
+
+
+
+<tr th:each="game:${gameList}">
+    <td><a th:href="@{'/api/games/'+${game.getId()}}" th:text="${game.getGameName()}"></a></td></br>
+    <img th:src="@{'/static/images/'+${game.getFileName()}}" height="50px" width="50px">
+    <form th:if="${userObject.role.role.name()=='ADMIN'}" th:action="@{'/api/games/delete/'+${game.getId()}}"
+          method="post">
+        <div><input type="submit" value="Delete"></div>
+    </form>
+</tr>
+</body>
+</html>

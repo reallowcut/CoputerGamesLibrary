@@ -1,0 +1,31 @@
+@charset "utf-8";
+*{
+    margin: 0%;
+    padding: 0%;
+    outline: none;
+}
+html {height: 100%;}
+body{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(116, 203, 199, 0.62);
+    color:rgb(11, 20, 27);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1em;
+    line-height: 135%;
+    float: left;
+}
+
+a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: all 0.6s ease;
+}
+
+a:hover{
+    color: rgb(252, 238, 0);
+}
+
+.clear{
+    clear: both;
+}
